@@ -34,16 +34,16 @@ BN不是凭空拍脑袋拍出来的好点子，它是有启发来源的：之前
 ### 4. BN 实现
 
 #### 4.1. 训练过程
-设定$x^k$为BN的输入，$\gamma$ 和 $\beta$ 分别为新数据的方差和均值，首先通过归一化操作将输入分布归一化到[0,1]分布，然后在通过scale操作将数据拉伸到[$\beta$, $\gamma$]分布中。
+设定$x^k$为BN的输入，\(\gamma\) 和 \(\beta\) 分别为新数据的方差和均值，首先通过归一化操作将输入分布归一化到[0,1]分布，然后在通过scale操作将数据拉伸到[\(\beta\), \(\gamma\)]分布中。
 
 $$\hat{x}^k = \frac{x^k - E[x^k]}{\sqrt{Var[x^k] +\epsilon}}\\
 y^k = \gamma * \hat{x}^k  + \beta$$
 其中$\gamma$和$\beta$是需要通过梯度下降训练的。
 
 **手动推导导数：**
-$\frac{y^k}{\gamma} = $
-$\frac{y^k}{\beta} = $
-$\frac{y^k}{x^k}$
+$$\frac{y^k}{\gamma} = $$
+$$\frac{y^k}{\beta} = $$
+$$\frac{y^k}{x^k}$$
 
 #### 4.2. 推断过程
 在推断(Inference)过程中，由于输入只有一个实例，无法计算出batch中的均值和方差。解决方案是保存之前在训练过程中的计算出的均值和方差，然后使用这些数据进行估计测试样本的均值方差，概率论中的无偏估计如下：
@@ -157,9 +157,14 @@ $$y^i = \gamma* \hat{x}^i+\beta \\
 
 Reference:
 博客：https://www.cnblogs.com/guoyaohua/p/8724433.html
+
 论文：
 [1] Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
+
 [2] Group Normalization
+
 [3] Differentiable learning-to-normalization via switchable normalization.
+
 [4] Layer Normalization
+
 [5] Instance Normalization: The Missing Ingredient for Fast Stylization
