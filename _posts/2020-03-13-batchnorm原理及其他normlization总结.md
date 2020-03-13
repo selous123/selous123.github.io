@@ -1,8 +1,8 @@
 ---
-title: batch normlization 原理及其他normalization方法总结
+title: Batch normlization 原理及其他normalization方法总结
 date:  2020-03-13 12:43:13 +0800
 category: deep-learning
-tags: dl, normlization
+tags: deep-learning normlization
 excerpt: 深度学习基础
 mathjax: true
 ---
@@ -137,6 +137,7 @@ $$y^i = \gamma* \hat{x}^i+\beta \\
 
 ##### 6. 问题
 为什么在图像超分领域，从EDSR开始将BN层从基础模块中去除？
+
 个人理解：BN本质还是在解决ICS问题，在分类文中，由于网络输入（图像）和网络输出（类标）之间的分布差异较大，通过BN可以在训练过程中减少错误/过分的分布漂移。但是对于图像超分这种工作，输入和输出之间本身的分布差异就比较小，所以加入BN的影响就不会很大，而且强行的改变分布，也会增加计算复杂度和影响网络的性能。实际调参过程中，去掉BN对模型的不会影响模型性能，当然也没有性能提升。
 
 
@@ -155,6 +156,7 @@ $$y^i = \gamma* \hat{x}^i+\beta \\
 ...
 
 Reference:
+
 博客：https://www.cnblogs.com/guoyaohua/p/8724433.html
 
 论文：
