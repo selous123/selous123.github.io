@@ -8,16 +8,12 @@ mathjax: true
 ---
 
 BatchNorm作用: **在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布的**。
-
 原始文章：Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
-
 从题目中就可以看出bn是通过减少Internal Covariate Shift来实现训练加速的，所以我们首先介绍什么ICS。
 
 ### 1. Internal Covariate Shift
 covariate shift：如果ML系统实例集合<X,Y>中的输入值X的分布老是变，这不符合IID假设，网络模型很难稳定的学到规律。
-
 Internal Covariate Shift： 在训练过程中，因为各层参数不停在变化，所以每个隐层都会面临covariate shift的问题，也就是在训练过程中，隐层的输入分布老是变来变去，这就是所谓的“Internal Covariate Shift”，Internal指的是深层网络的隐层，是发生在网络内部的事情，而不是covariate shift问题只发生在输入层。
-
 **总结：** 上述描述说明神经网络训练不稳定的原因主要来自于隐层中分布漂移。所以BN的思想就是如何解决隐层中的分布漂移的问题。
 
 ### 2. Motivation
@@ -27,20 +23,21 @@ BN不是凭空拍脑袋拍出来的好点子，它是有启发来源的：之前
 基本思想：通过一定的规范化手段，把每层神经网络任意神经元这个输入值的分布强行拉回到均值为0方差为1的标准正态分布，然后为了保证非线性的获得，对变换后的满足均值为0方差为1的x又进行了scale加上shift操作(y=scale*x+shift)。
 [该博客](https://www.cnblogs.com/guoyaohua/p/8724433.html) 简单解释了scale 和 shift 操作的意义：**找到一个线性和非线性的较好平衡点，既能享受非线性的较强表达能力的好处，又避免太靠非线性区两头使得网络收敛速度太慢。**
 
-
 注意：**按照上述思想，网络结构设计顺序应该是conv-BN-activation。首先通过BN将经过卷积操作的输出归一化分布，使得激活输入的结果能尽可能的落入激活有效区域。** 但实际操作中会发现对于不同的数据，conv-activation-BN实际和上述的差异不是很大。
 
 
 ### 4. BN 实现
 
 #### 4.1. 训练过程
-设定$x^k$为BN的输入，\(\gamma\) 和 \(\beta\) 分别为新数据的方差和均值，首先通过归一化操作将输入分布归一化到[0,1]分布，然后在通过scale操作将数据拉伸到[\(\beta\), \(\gamma\)]分布中。
+设定$x^k$为BN的输入，$\gamma$ 和 $\beta$ 分别为新数据的方差和均值，首先通过归一化操作将输入分布归一化到[0,1]分布，然后在通过scale操作将数据拉伸到[$\beta$, $\gamma$]分布中。
 
 $$\hat{x}^k = \frac{x^k - E[x^k]}{\sqrt{Var[x^k] +\epsilon}}\\
 y^k = \gamma * \hat{x}^k  + \beta$$
+
 其中$\gamma$和$\beta$是需要通过梯度下降训练的。
 
 **手动推导导数：**
+
 $$\frac{y^k}{\gamma} = $$
 $$\frac{y^k}{\beta} = $$
 $$\frac{y^k}{x^k}$$
@@ -137,15 +134,13 @@ $$y^i = \gamma* \hat{x}^i+\beta \\
 
 ##### 6. 问题
 为什么在图像超分领域，从EDSR开始将BN层从基础模块中去除？
-
 个人理解：BN本质还是在解决ICS问题，在分类文中，由于网络输入（图像）和网络输出（类标）之间的分布差异较大，通过BN可以在训练过程中减少错误/过分的分布漂移。但是对于图像超分这种工作，输入和输出之间本身的分布差异就比较小，所以加入BN的影响就不会很大，而且强行的改变分布，也会增加计算复杂度和影响网络的性能。实际调参过程中，去掉BN对模型的不会影响模型性能，当然也没有性能提升。
 
 
 #### 7. 扩展
 基于batch Normalization的改进一般就是在不同数据特征维度上进行。
 <center><img src="https://selous123.github.io/assets/img/GN_compare.png" width="700" height="200"/></center>
-图片引自论文Group Normlization.
-
+注: 图片引自论文Group Normlization.
 ##### 7.1. Layer Normalization
 ##### 7.2. Weight Normalization
 ##### 7.3. Instance Normalization
