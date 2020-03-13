@@ -52,9 +52,10 @@ $$E[x] = E_B(\mu_B) \\
 Var[x] = \frac{m}{m-1}E_B(\sigma_B^2)$$
 
 然后使用估计出的均值和方差作用到数据上：
+
 $$y^i = \gamma* \hat{x}^i+\beta \\
 =\gamma * \frac{x^i - E[x]}{\sqrt{Var[x] + \epsilon}} + \beta \\
-= \frac{\gamma}{\sqrt{Var[x] + \epsilon}} * x^i + (\beta - \frac{\gamma * E[x]}{\sqrt{Var[x] + \epsilon}})  $$
+= \frac{\gamma}{\sqrt{Var[x] + \epsilon}} * x^i + (\beta - \frac{\gamma * E[x]}{\sqrt{Var[x] + \epsilon}}) $$
 
 而且$\frac{\gamma}{\sqrt{Var[x] + \epsilon}}$ 和 $(\beta - \frac{\gamma * E[x]}{\sqrt{Var[x] + \epsilon}})$ 均为确定的值，所以就可以在训练过程中使用变量储存在网络中。
 
