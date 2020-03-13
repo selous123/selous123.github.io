@@ -3,7 +3,8 @@ title: batch normlization 原理及其他normalization方法总结
 date:  2020-03-13 12:43:13 +0800
 category: deep-learning
 tags: dl, normlization
-excerpt: 深度学习基础。
+excerpt: 深度学习基础
+mathjax: true
 ---
 
 BatchNorm作用: **在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布的**。
@@ -141,7 +142,7 @@ $$y^i = \gamma* \hat{x}^i+\beta \\
 
 #### 7. 扩展
 基于batch Normalization的改进一般就是在不同数据特征维度上进行。
-<center><img src="https://selous123.github.io/assets/img/GN_compare.png" width="200" height="200"/></center>
+<center><img src="https://selous123.github.io/assets/img/GN_compare.png" width="700" height="200"/></center>
 图片引自论文Group Normlization.
 
 ##### 7.1. Layer Normalization
