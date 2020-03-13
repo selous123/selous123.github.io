@@ -8,12 +8,16 @@ mathjax: true
 ---
 
 BatchNorm作用: **在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布的**。
+
 原始文章：Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
+
 从题目中就可以看出bn是通过减少Internal Covariate Shift来实现训练加速的，所以我们首先介绍什么ICS。
 
 ### 1. Internal Covariate Shift
 covariate shift：如果ML系统实例集合<X,Y>中的输入值X的分布老是变，这不符合IID假设，网络模型很难稳定的学到规律。
+
 Internal Covariate Shift： 在训练过程中，因为各层参数不停在变化，所以每个隐层都会面临covariate shift的问题，也就是在训练过程中，隐层的输入分布老是变来变去，这就是所谓的“Internal Covariate Shift”，Internal指的是深层网络的隐层，是发生在网络内部的事情，而不是covariate shift问题只发生在输入层。
+
 **总结：** 上述描述说明神经网络训练不稳定的原因主要来自于隐层中分布漂移。所以BN的思想就是如何解决隐层中的分布漂移的问题。
 
 ### 2. Motivation
@@ -27,7 +31,6 @@ BN不是凭空拍脑袋拍出来的好点子，它是有启发来源的：之前
 
 
 ### 4. BN 实现
-
 #### 4.1. 训练过程
 设定$x^k$为BN的输入，$\gamma$ 和 $\beta$ 分别为新数据的方差和均值，首先通过归一化操作将输入分布归一化到[0,1]分布，然后在通过scale操作将数据拉伸到[$\beta$, $\gamma$]分布中。
 
