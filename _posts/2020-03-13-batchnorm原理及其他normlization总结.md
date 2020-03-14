@@ -63,73 +63,73 @@ $$y^i = \gamma* \hat{x}^i+\beta \\
 关于tensorflow中代码部分的详解在我[之间的博客](https://blog.csdn.net/selous/article/details/77749776)中详细记录
 
 首先定义bn层：
+```
+import tensorflow as tf
+class ConvolutionalBatchNormalizer(object):
+    """Helper class that groups the normalization logic and variables.        
 
-    import tensorflow as tf
-    class ConvolutionalBatchNormalizer(object):
-        """Helper class that groups the normalization logic and variables.        
+    Use:                                                                      
+        ewma = tf.train.ExponentialMovingAverage(decay=0.99)                  
+        bn = ConvolutionalBatchNormalizer(depth, 0.001, ewma, True)           
+        update_assignments = bn.get_assigner()                                
+        x = bn.normalize(y, train=training?)                                  
+        (the output x will be batch-normalized).                              
+    """
 
-        Use:                                                                      
-            ewma = tf.train.ExponentialMovingAverage(decay=0.99)                  
-            bn = ConvolutionalBatchNormalizer(depth, 0.001, ewma, True)           
-            update_assignments = bn.get_assigner()                                
-            x = bn.normalize(y, train=training?)                                  
-            (the output x will be batch-normalized).                              
-        """
-
-        def __init__(self, depth, epsilon, ewma_trainer, scale_after_norm):
-            self.mean = tf.Variable(tf.constant(0.0, shape=[depth]),
+    def __init__(self, depth, epsilon, ewma_trainer, scale_after_norm):
+        self.mean = tf.Variable(tf.constant(0.0, shape=[depth]),
+                                trainable=False)
+        self.variance = tf.Variable(tf.constant(1.0, shape=[depth]),
                                     trainable=False)
-            self.variance = tf.Variable(tf.constant(1.0, shape=[depth]),
-                                        trainable=False)
-            self.beta = tf.Variable(tf.constant(0.0, shape=[depth]))
-            self.gamma = tf.Variable(tf.constant(1.0, shape=[depth]))
-            self.ewma_trainer = ewma_trainer
-            self.epsilon = epsilon
-            self.scale_after_norm = scale_after_norm
+        self.beta = tf.Variable(tf.constant(0.0, shape=[depth]))
+        self.gamma = tf.Variable(tf.constant(1.0, shape=[depth]))
+        self.ewma_trainer = ewma_trainer
+        self.epsilon = epsilon
+        self.scale_after_norm = scale_after_norm
 
-        def get_assigner(self):
-            """Returns an EWMA apply op that must be invoked after optimization."""
-            #在optimization之后必须被调用
-            return self.ewma_trainer.apply([self.mean, self.variance])
+    def get_assigner(self):
+        """Returns an EWMA apply op that must be invoked after optimization."""
+        #在optimization之后必须被调用
+        return self.ewma_trainer.apply([self.mean, self.variance])
 
-        def normalize(self, x, train=True):
-            """Returns a batch-normalized version of x."""
-            if train:
-                # 首先计算均值方差
-                mean, variance = tf.nn.moments(x, [0, 1, 2])
-                assign_mean = self.mean.assign(mean)
-                assign_variance = self.variance.assign(variance)
-                with tf.control_dependencies([assign_mean, assign_variance]):
-                    return tf.nn.batch_normalization(
-                        x, mean, variance, self.beta, self.gamma,
-                        self.epsilon, self.scale_after_norm)
-            else:
-                mean = self.ewma_trainer.average(self.mean)
-                variance = self.ewma_trainer.average(self.variance)
-                local_beta = tf.identity(self.beta)
-                local_gamma = tf.identity(self.gamma)
+    def normalize(self, x, train=True):
+        """Returns a batch-normalized version of x."""
+        if train:
+            # 首先计算均值方差
+            mean, variance = tf.nn.moments(x, [0, 1, 2])
+            assign_mean = self.mean.assign(mean)
+            assign_variance = self.variance.assign(variance)
+            with tf.control_dependencies([assign_mean, assign_variance]):
                 return tf.nn.batch_normalization(
-                    x, mean, variance, local_beta, local_gamma,
+                    x, mean, variance, self.beta, self.gamma,
                     self.epsilon, self.scale_after_norm)
-
+        else:
+            mean = self.ewma_trainer.average(self.mean)
+            variance = self.ewma_trainer.average(self.variance)
+            local_beta = tf.identity(self.beta)
+            local_gamma = tf.identity(self.gamma)
+            return tf.nn.batch_normalization(
+                x, mean, variance, local_beta, local_gamma,
+                self.epsilon, self.scale_after_norm)
+```
 然后在网络框架中调用：
+```
+#先在层中使用这个类
+ewma = tf.train.ExponentialMovingAverage(decay=0.99)                  
+bn = ConvolutionalBatchNormalizer(depth, 0.001, ewma, True)           
+update_assignments = bn.get_assigner()                                
+x = bn.normalize(y, train=training?)
+#x 就是normalization后的量
 
-    #先在层中使用这个类
-    ewma = tf.train.ExponentialMovingAverage(decay=0.99)                  
-    bn = ConvolutionalBatchNormalizer(depth, 0.001, ewma, True)           
-    update_assignments = bn.get_assigner()                                
-    x = bn.normalize(y, train=training?)
-    #x 就是normalization后的量
+...
 
-    ...
-
-    #定义mean和variance的更新(ExponentialMovingAverage)
-    #
-    update_assignments = tf.group(bn1.get_assigner(),                         
-                                    bn2.get_assigner())                         
-    with tf.control_dependencies([optimizer]):                                
-        optimizer = tf.group(update_assignments)
-
+#定义mean和variance的更新(ExponentialMovingAverage)
+#
+update_assignments = tf.group(bn1.get_assigner(),                         
+                                bn2.get_assigner())                         
+with tf.control_dependencies([optimizer]):                                
+    optimizer = tf.group(update_assignments)
+```
 当然现在tensorflow已经将bn层集成的很好，一个参数设置就可以在网络中加入BN。
 
 #### 5. 总结
