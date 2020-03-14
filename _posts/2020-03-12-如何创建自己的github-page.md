@@ -16,12 +16,15 @@ excerpt: 介绍如何搭建github-page
 ##### a. 首先设置username和email.
 注意："XXX"中的内容请改成自己的github用户名和github注册的邮箱
 >git config --global user.name "selous123"
+
 >git config --global user.email "lrhselous@163.com"
 
 ##### b. 通过终端命令生成ssh keys， 全部回车设置为默认值
 >$ ssh-keygen -t rsa -C "lrhselous@163.com"
-Generating public/private rsa key pair.
-Enter file in which to save the key (/c/Users/selous/.ssh/id_rsa):
+
+>Generating public/private rsa key pair.
+
+>Enter file in which to save the key (/c/Users/selous/.ssh/id_rsa):
 
 ##### c. 复制ssh公钥信息
 如果上述ssh命令成功，则默认在主目录下(如上述命令输出：Enter file in which to save the key (**/c/Users/selous/.ssh**/id_rsa))， 就可以找到隐藏目录"~/.ssh"。然后复制该目录下文件id_rsa.pub的文件信息。
@@ -30,9 +33,9 @@ Enter file in which to save the key (/c/Users/selous/.ssh/id_rsa):
 >cat ~/.ssh/id_rsa.pub
 
 #### d. 然后将公钥信息复制到github上
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings.png" width="300" height="260"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings.png" width="200" height="260"/></center>
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings2.png" width="500" height="260"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings2.png" width="500" height="160"/></center>
 
 <center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings3.png" width="500" height="260"/></center>
 
@@ -56,7 +59,9 @@ Enter file in which to save the key (/c/Users/selous/.ssh/id_rsa):
 
 #### 2.5. 将文件push到自己的repo中
 > git add -A
+
 > git commit -m "init repo"
+
 > git push origin master
 
 
