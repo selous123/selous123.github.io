@@ -15,9 +15,9 @@ excerpt: 介绍如何搭建github-page
 
 ##### a. 首先设置username和email.
 注意："XXX"中的内容请改成自己的github用户名和github注册的邮箱
->git config --global user.name "selous123"
+>git config - -global user.name "selous123"
 
->git config --global user.email "lrhselous@163.com"
+>git config - -global user.email "lrhselous@163.com"
 
 ##### b. 通过终端命令生成ssh keys， 全部回车设置为默认值
 >$ ssh-keygen -t rsa -C "lrhselous@163.com"
@@ -76,5 +76,28 @@ excerpt: 介绍如何搭建github-page
 
 ### 3. 写在后面
 #### 3.1. 如何将博客私有化
+##### a. 删除CNAME 文件中的内容，不然会报warning.
+##### b. 配置about页面
+打开 about.md文件，修改关于自己页面
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings1.png" width="700" height="150"/></center>
+
+##### c. 私有化首页内容
+打开_config.yml文件，修改自己的个性化设置
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings2.png" width="700" height="150"/></center>
+
+##### d. 写博客
+将_post文件夹中博客删除，创建自己新的博客。
+
+命名格式为: YYYY-MM-DD-nameofblog.md
+
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings3.png" width="700" height="150"/></center>
+
+写完然后上传到github就可以看到博客内容了.
+
+**注意: 网页更新比较慢，不会即时生效。有的时候也需要清理一下浏览器缓存才能正常访问到更新的内容。**
+
 #### 3.2. 推荐编辑器--vscode
+
+
+
 Enjoy Yourself in Blog!
