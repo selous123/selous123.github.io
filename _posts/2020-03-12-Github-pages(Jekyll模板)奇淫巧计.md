@@ -135,6 +135,6 @@ mathjax: true
 
 #### 5. 添加表情支持
 
-**资源链接": https://www.webfx.com/tools/emoji-cheat-sheet/
+**资源链接**: https://www.webfx.com/tools/emoji-cheat-sheet/
 
 示例： :kissing_heart: :grin: :heartpulse:
