@@ -79,18 +79,18 @@ excerpt: 介绍如何搭建github-page
 ##### a. 删除CNAME 文件中的内容，不然会报warning.
 ##### b. 配置about页面
 打开 about.md文件，修改关于自己页面
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings1.png" width="700" height="150"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings1.png" width="700" height="330"/></center>
 
 ##### c. 私有化首页内容
 打开_config.yml文件，修改自己的个性化设置
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings2.png" width="700" height="150"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings2.png" width="700" height="330"/></center>
 
 ##### d. 写博客
 将_post文件夹中博客删除，创建自己新的博客。
 
 命名格式为: YYYY-MM-DD-nameofblog.md
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings3.png" width="700" height="150"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings3.png" width="700" height="250"/></center>
 
 写完然后上传到github就可以看到博客内容了.
 
