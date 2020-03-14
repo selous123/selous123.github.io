@@ -45,7 +45,7 @@ excerpt: 介绍如何搭建github-page
 ### 2. 如何搭建自己的github-page.
 #### 2.1. 在github网站上新建项目，项目名称为 "用户名.github.io"
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/create.png" width="300" height="260"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/create.png" width="400" height="320"/></center>
 
 #### 2.2. 将该项目pull到本地
 > git clone git@github.com:用户名/用户名.github.io.git 
@@ -66,13 +66,13 @@ excerpt: 介绍如何搭建github-page
 
 
 #### 2.6. 最后就可以通过网址: 用户名.github.io访问到博客内容。
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/blog.png" width="700" height="300"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/blog.png" width="700" height="350"/></center>
 
 **也可以通过github repo的setting选项查看自己blog的状态。**
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/settings.png" width="700" height="100"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/settings.png" width="700" height="140"/></center>
 然后可以看到github-pages的状态如下:
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gp_zt.png" width="700" height="100"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gp_zt.png" width="700" height="150"/></center>
 
 ### 3. 写在后面
 #### 3.1. 如何将博客私有化
