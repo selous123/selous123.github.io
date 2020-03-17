@@ -3,11 +3,11 @@ title: 图像注意力机制工作总结
 date:  2020-03-15 21:34:13 +0800
 category: architecture
 tags: deep-learning architecture
-excerpt: 总结注意力机制attention中比较有趣的工作
+excerpt: 总结注意力机制attention中比较有趣的工作(a)
 comment: True
 mathjax: True
 ---
-<font color="red"><b>注意力机制</b></font>：想法起源于对人类视觉系统机制的研究。 人类视觉系统在观察图像时，一般会格外注意自己想要关注的区域。而传统方式训练出的神经网络，对图片的全部区域其实是等价处理的。虽然神经网络学习到了图片的特征来进行分类，但是这些特征在神经网络“眼里”没有差异，神经网络并不会过多关注某个“区域”。但是人类注意力是会集中在这张图片的一个区域内，而其他的信息受关注度会相应降低。
+<font color="red"><b>注意力机制</b>：</font>想法起源于对人类视觉系统机制的研究。 人类视觉系统在观察图像时，一般会格外注意自己想要关注的区域。而传统方式训练出的神经网络，对图片的全部区域其实是等价处理的。虽然神经网络学习到了图片的特征来进行分类，但是这些特征在神经网络“眼里”没有差异，神经网络并不会过多关注某个“区域”。但是人类注意力是会集中在这张图片的一个区域内，而其他的信息受关注度会相应降低。
 
 <font color="red"><b>注意力机制的作用</b>：</font>一方面注意力机制可以指导神经网络关注特定区域的特征信息，另一方面注意力机制还能帮助研究人员理解神经网络时通过关注哪些区域而做到正确分类的，进而更好的理解神经网络的机制 [2]。 
 
@@ -30,7 +30,7 @@ $$
 
 a). 设计思路
 
-<font color="red"> Spatial Transformer Networks（STN）</font>模型$^{[3]}$是15年NIPS上的文章，这篇文章应该是空间注意力机制第一次被应用到图像领域，但是当时文章作者并没有提出注意力机制的概念，原始论文声明的文章要点是：将原始图片中的空间信息变换到另一个空间中并保留了关键信息。
+<b>Spatial Transformer Networks（STN）</b>模型$^{[3]}$是15年NIPS上的文章，这篇文章应该是空间注意力机制第一次被应用到图像领域，但是当时文章作者并没有提出注意力机制的概念，原始论文声明的文章要点是：将原始图片中的空间信息变换到另一个空间中并保留了关键信息。
 
 <center><img src="https://selous123.github.io/assets/img/blog-attention/stn.png" width="70%" height="auto"/>
 
@@ -62,6 +62,7 @@ class SALayer(nn.Module):
 通道注意力机制是通过关注特征之间的不同 Channel 之间的重要性。通过生成一个 $\text{mask} \in \mathcal{R}^{[C_\text{in}]}$，然后作用到所有特征的通道上。
 
 a). 设计思路
+
 论文$^{[4]}$中提出了一个非常重要的SENet的模型结构，靠着这个模型他们获得了ImageNet的冠军，这个模型是非常有创造力的设计。
 
 <center><img src="https://selous123.github.io/assets/img/blog-attention/senet.png" width="70%" height="auto"/>
