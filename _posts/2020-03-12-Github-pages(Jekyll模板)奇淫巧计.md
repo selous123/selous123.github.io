@@ -88,7 +88,7 @@ WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件
 **_include/mathjax.html:**
 
 ```
-  {% if page.mathjax %}
+  {\% if page.mathjax \%}
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -109,7 +109,8 @@ WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件
     src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
   >
   </script>
-  {% endif %}
+  {\% endif \%}
+  hhh
 ```
 
 ##### 步骤2. 在_layouts/post.html添加
