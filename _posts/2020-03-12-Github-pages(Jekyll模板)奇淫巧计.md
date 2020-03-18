@@ -110,13 +110,12 @@ WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件
   >
   </script>
   {\% endif \%}
-  hhh
 ```
 
 ##### 步骤2. 在_layouts/post.html添加
 
 ```
-  {% include mathjax.html %}
+  {\% include mathjax.html \%}
 ```
 
 ##### 步骤3. 在博客的md文件中添加
