@@ -86,6 +86,7 @@ WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件
 ##### 步骤1. 在_include目录下添加文件mathjax.html
 
 **_include/mathjax.html:**
+
 ```
 {% if page.mathjax %}
 <script type="text/x-mathjax-config">
@@ -112,15 +113,18 @@ WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件
 ```
 
 ##### 步骤2. 在_layouts/post.html添加
+
 ```
 {% include mathjax.html %}
 ```
 ##### 步骤3. 在博客的md文件中添加
+
 ```
 mathjax: true
 ```
 
 例如：
+
 ```
 title: Batch normlization 原理及其他normalization方法总结
 date:  2020-03-13 12:43:13 +0800
