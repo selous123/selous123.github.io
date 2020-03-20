@@ -6,6 +6,28 @@ reward: false
 
 <!-- <center><img src="https://selous123.github.io/assets/img/avatar.webp" width="200" height="200"/></center> -->
 
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" tppabs="http://www.xiemk.pro/jemdoc.css" type="text/css" />
+<title>Ming-Kun Xie at NUAA</title>
+</head>
+
+<body>
+<div id="layout-content">
+
+<table class="imgtable"><tr><td>
+<a href="javascript:if(confirm('http://www.xiemk.pro/xiemk.jpg  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������������ļ�δ�ҵ���  \n\n�����ڷ������ϴ���?'))window.location='http://www.xiemk.pro/xiemk.jpg'" tppabs="http://www.xiemk.pro/xiemk.jpg"><img src="me-v3.jpg" tppabs="http://www.xiemk.pro/images/me-v3.jpg" alt="xiemk.jpg" height="200px" /></a>&nbsp;</td>
+<td align="left"><p><b><font size="+3" face="STKaiti">谢 明 昆</font></b><br />
+<font size="+2">Ming-Kun Xie</font></b><br />
+M.Sc Student</font></b><br />
+<a href="javascript:if(confirm('https://cs.nuaa.edu.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://cs.nuaa.edu.cn/'" tppabs="https://cs.nuaa.edu.cn/">College of Computer Science and Technology</a> <br />
+<a href="javascript:if(confirm('http://www.nuaa.edu.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.nuaa.edu.cn/'" tppabs="http://www.nuaa.edu.cn/">Nanjing University of Aeronautics and Astronautics </a>, Nanjing 211106, China<br />
+Supervisor: Prof. <a href="javascript:if(confirm('http://parnec.nuaa.edu.cn/huangsj/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://parnec.nuaa.edu.cn/huangsj/'" tppabs="http://parnec.nuaa.edu.cn/huangsj/">Sheng-Jun Huang</a> <br />
+Email: mkxie@nuaa.edu.cn <br />
+</td>
+<td valign="center">
+<p align="center"><a href="javascript:if(confirm('http://www.nuaa.edu.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.nuaa.edu.cn/'" tppabs="http://www.nuaa.edu.cn/" target="_blank"><img height="150" src="nuaa_v2.jpg" tppabs="http://www.xiemk.pro/images/nuaa_v2.jpg"  border="0"></a></p></td></tr></table>
 
 <h2>About Me</h2>
 <p>Now I am a second year graduate student of College of Computer Science and Technology in Nanjing University of Aeronautics and Astronautics as well as a member of <a href="javascript:if(confirm('http://parnec.nuaa.edu.cn/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://parnec.nuaa.edu.cn/'" tppabs="http://parnec.nuaa.edu.cn/">ParNec Group</a>.
@@ -50,6 +72,8 @@ reward: false
     <li>running</li>
 </ul>
 
+</div>
+</body>
 
 <center><p style="font-size='16px' font-style='bold'">计算机视觉算法工程师</p></center>
 <center><p style="font-size='16px' font-style='bold'">这里主要记录我的个人介绍等</p></center>
