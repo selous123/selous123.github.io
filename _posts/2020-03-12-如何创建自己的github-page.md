@@ -33,19 +33,19 @@ excerpt: 介绍如何搭建github-page
 >cat ~/.ssh/id_rsa.pub
 
 #### d. 然后将公钥信息复制到github上
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings.png" width="200" height="260"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings.png" width="200" height="auto"/></center>
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings2.png" width="500" height="160"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings2.png" width="500" height="auto"/></center>
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings3.png" width="500" height="260"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings3.png" width="500" height="auto"/></center>
 
 设置成功之后，就可以实现本地git通过ssh和github连接了
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings4.png" width="600" height="260"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gsettings4.png" width="600" height="auto"/></center>
 
 ### 2. 如何搭建自己的github-page.
 #### 2.1. 在github网站上新建项目，项目名称为 "用户名.github.io"
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/create.png" width="400" height="320"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/create.png" width="400" height="auto"/></center>
 
 #### 2.2. 将该项目pull到本地
 > git clone git@github.com:用户名/用户名.github.io.git 
@@ -55,7 +55,7 @@ excerpt: 介绍如何搭建github-page
 
 #### 2.4. 然后将文件下的除了.git外的所有文件复制到自己的目录下
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/file.png" width="400" height="300"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/file.png" width="400" height="auto"/></center>
 
 #### 2.5. 将文件push到自己的repo中
 > git add -A
@@ -66,31 +66,31 @@ excerpt: 介绍如何搭建github-page
 
 
 #### 2.6. 最后就可以通过网址: 用户名.github.io访问到博客内容。
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/blog.png" width="700" height="350"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/blog.png" width="700" height="auto"/></center>
 
 **也可以通过github repo的setting选项查看自己blog的状态。**
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/settings.png" width="700" height="140"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/settings.png" width="700" height="auto"/></center>
 然后可以看到github-pages的状态如下:
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/gp_zt.png" width="700" height="150"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/gp_zt.png" width="700" height="auto"/></center>
 
 ### 3. 写在后面
 #### 3.1. 如何将博客私有化
 ##### a. 删除CNAME 文件中的内容，不然会报warning.
 ##### b. 配置about页面
 打开 about.md文件，修改关于自己页面
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings1.png" width="700" height="330"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings1.png" width="700" height="auto"/></center>
 
 ##### c. 私有化首页内容
 打开_config.yml文件，修改自己的个性化设置
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings2.png" width="700" height="330"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings2.png" width="700" height="auto"/></center>
 
 ##### d. 写博客
 将_post文件夹中博客删除，创建自己新的博客。
 
 命名格式为: YYYY-MM-DD-nameofblog.md
 
-<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings3.png" width="700" height="250"/></center>
+<center><img src="https://selous123.github.io/assets/img/blog-gpage/psettings3.png" width="700" height="auto"/></center>
 
 写完然后上传到github就可以看到博客内容了.
 
