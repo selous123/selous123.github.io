@@ -59,3 +59,12 @@ os.environ["DETECTRON2_DATASETS"] = "/store/dataset/VOC2007/VOC_trainval"
 #### 2.2 定义模型 (Model Defining)
 ##### a) 预定义模型
 ##### b) 自定义模型
+
+
+### 3. 常用目标识别模型
+
+#### 3.1 YoLo v3
+
+模型输出: [b, bbox, bbox_attr]:[b, 10647, 5 + classes_num]
+
+bbox_attr: xyhw, object_confidence(框内是否有物体), cls_confidence(物体类别的概率)
